@@ -1,0 +1,166 @@
+@use "mixin" as c;
+@use "ham";
+@use "variables" as a;
+
+body {
+  background-image: url(../img/bg-img.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  header {
+    .nav {
+      position: absolute;
+      width: 100%;
+      height: 20%;
+      background-color: a.$transparent;
+      top: -100%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: all 0.3s ease-in-out;
+      @include c.desktop {
+        height: 75px;
+        width: 100%;
+        top: 0;
+      }
+      &__wrapper {
+        height: 95%;
+        @include c.desktop {
+          width: 40%;
+        }
+        &__items {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: end;
+          gap: 5px;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          color: a.$primary;
+          transition: color 0.2s ease-in-out;
+          @include c.desktop {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            right: 50px;
+            gap: 20px;
+            position: absolute;
+          }
+          li a {
+            text-decoration: none;
+            font-size: x-large;
+            color: a.$primary;
+            @include c.desktop {
+              margin: 15px;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  main {
+    .welcome {
+      height: 100vh;
+      font-size: x-large;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      &__text {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 50px;
+        color: a.$primary;
+        font-size: xx-large;
+        margin: 20px;
+      }
+    }
+    #link {
+      &--om {
+        color: a.$primary;
+        position: absolute;
+        top: 90%;
+        width: 100%;
+        text-align: center;
+      }
+
+      &--kontakt {
+        color: a.$third;
+        width: 100%;
+        margin-bottom: 60px;
+      }
+    }
+    .team {
+      background-color: a.$primary;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      h2 {
+        font-size: xx-large;
+        flex-basis: 100%;
+      }
+      @include c.desktop {
+        flex-wrap: wrap;
+        flex-direction: row;
+      }
+      &__profile {
+        @include c.desktop {
+          width: 50%;
+        }
+        &__img {
+          width: 60%;
+          border-radius: 50%;
+          box-shadow: a.$prf_shadow;
+        }
+        &__quote {
+          background-color: a.$secondary;
+          font-size: large;
+          margin: 40px;
+          padding: 40px;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+  footer {
+    background-color: a.$third;
+    color: a.$primary;
+    height: 500px;
+    position: static;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    @include c.desktop {
+      height: 300px;
+    }
+    .contact {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      justify-content: space-evenly;
+      @include c.desktop {
+        flex-direction: row;
+        gap: 250px;
+      }
+      &__info {
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        font-size: x-large;
+        i {
+          padding-right: 16px;
+        }
+      }
+    }
+  }
+}
